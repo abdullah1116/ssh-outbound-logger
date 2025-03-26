@@ -1,0 +1,23 @@
+/var/log/ssh-outbound-logger/log.log {
+    daily
+    rotate 30
+    copytruncate
+    dateext
+    dateformat -%Y%m%d
+    compress
+    delaycompress
+    missingok
+    notifempty
+}
+
+/var/log/ssh-outbound-logger/error.log {
+    daily
+    rotate 30
+    copytruncate
+    dateext
+    dateformat -%Y%m%d
+    compress
+    delaycompress
+    missingok
+    notifempty
+}

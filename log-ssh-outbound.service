@@ -1,0 +1,14 @@
+[Unit]
+Description=ssh-outbound-logger
+After=network.target syslog.target
+
+[Service]
+User=root
+Environment=NODE_ENV=production
+ExecStart=/usr/local/bin/ssh-outbound-logger
+Restart=on-failure
+StandardOutput=append:/var/log/ssh-outbound-logger/log.log
+StandardError=append:/var/log/ssh-outbound-logger/error.log
+
+[Install]
+WantedBy=multi-user.target
