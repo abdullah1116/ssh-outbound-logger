@@ -4,7 +4,7 @@ export async function lsof() {
   return (await $`lsof -Pn -p ^1 -i :22`.text().catch(() => ''))
     .split('\n')
     .slice(1)
-    .filter((raw) => raw)
+    .filter((raw) => raw && !raw.includes('*:22') && !raw.includes(':22->'))
     .map((raw) => {
       const headers = [
         'command',
